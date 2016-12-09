@@ -16,7 +16,7 @@ public class SetupScript {
 
                     DataOutputStream os = new DataOutputStream(p.getOutputStream());
 
-                    os.writeBytes("/bin/sh " + scriptPath + "\n");
+                    os.writeBytes("/system/bin/sh " + scriptPath + "\n");
                     os.writeBytes("exit\n");
                     os.flush();
                     p.waitFor();
