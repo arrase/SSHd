@@ -1,14 +1,12 @@
 package llanes.ezquerro.juan.cmsshd.Utils;
 
-import android.content.Context;
-
 import java.io.DataOutputStream;
 import java.io.IOException;
 
 public class SetupScript {
-    public static void run(Context context) {
+    public static void run(String path) {
 
-        final String scriptPath = new SSHdResources(context).getSetupScriptPath();
+        final String scriptPath = path;
 
         new Thread(new Runnable() {
             public void run() {

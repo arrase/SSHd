@@ -21,7 +21,7 @@ public class SSHdActivity extends PreferenceActivity {
         SSHdResources resources = new SSHdResources(this);
         if (!resources.areInstalled()) {
             resources.installSSHdFiles();
-            SetupScript.run(this);
+            SetupScript.run(resources.getSetupScriptPath());
         }
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
