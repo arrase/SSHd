@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 
-import llanes.ezquerro.juan.cmsshd.Utils.SSHdResources;
-import llanes.ezquerro.juan.cmsshd.Utils.SetupScript;
 import llanes.ezquerro.juan.cmsshd.listeners.OptionsChangeListener;
+import llanes.ezquerro.juan.cmsshd.setup.SSHdResources;
+import llanes.ezquerro.juan.cmsshd.setup.SetupScript;
 
 public class SSHdActivity extends PreferenceActivity {
     private SharedPreferences prefs;

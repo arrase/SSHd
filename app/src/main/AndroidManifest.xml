@@ -17,12 +17,18 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="llanes.ezquerro.juan.cmsshd.intent.action.START" />
+            </intent-filter>
         </activity>
 
         <service
-            android:name=".sshd"
+            android:name=".service.SSHdService"
             android:enabled="true"
-            android:exported="false"></service>
+            android:exported="false" />
+
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package llanes.ezquerro.juan.cmsshd.Utils;
+package llanes.ezquerro.juan.cmsshd.setup;
 
 
 import android.app.Application;
@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import llanes.ezquerro.juan.cmsshd.R;
+import llanes.ezquerro.juan.cmsshd.constants.SSHdConstants;
 
 public class SSHdResources {
     private Context mContext;

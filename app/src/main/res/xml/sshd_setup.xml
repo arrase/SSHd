@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory
-        android:title="@string/sshd_setup">
+    <PreferenceCategory android:title="@string/sshd_setup">
         <SwitchPreference
             android:defaultValue="false"
             android:key="@string/pref_enabled"
@@ -9,24 +8,13 @@
 
         <SwitchPreference
             android:defaultValue="false"
-            android:dependency="@string/pref_enabled"
-            android:key="@string/pref_daemon"
-            android:title="@string/run_on_startup" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:dependency="@string/pref_enabled"
-        android:title="@string/tor_setup">
+            android:key="@string/pref_localhost"
+            android:title="@string/only_localhost" />
 
         <SwitchPreference
             android:defaultValue="false"
-            android:key="@string/pref_onion"
-            android:title="@string/setup_tor_url" />
-
-        <SwitchPreference
-            android:defaultValue="true"
-            android:dependency="@string/pref_onion"
-            android:key="@string/pref_localhost"
-            android:title="@string/only_localhost" />
+            android:dependency="@string/pref_enabled"
+            android:key="@string/pref_daemon"
+            android:title="@string/run_on_startup" />
     </PreferenceCategory>
 </PreferenceScreen>
