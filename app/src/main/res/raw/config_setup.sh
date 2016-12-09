@@ -8,11 +8,6 @@ fi
 chmod 700 /data/ssh
 chmod 700 /data/ssh/empty
 
-if [ -f /data/ssh/sshd_config ]
-then
-    chmod 600 /data/ssh/sshd_config
-fi
-
 if ! [ -d /data/.ssh ]
 then
     mkdir -p /data/.ssh

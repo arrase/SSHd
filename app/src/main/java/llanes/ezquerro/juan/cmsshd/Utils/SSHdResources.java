@@ -12,12 +12,12 @@ import java.io.OutputStream;
 
 import llanes.ezquerro.juan.cmsshd.R;
 
-public class InstallResources {
+public class SSHdResources {
     private Context mContext;
     private File configFile;
     private File setupScript;
 
-    public InstallResources(Context context) {
+    public SSHdResources(Context context) {
         mContext = context;
 
         File binDir = mContext.getDir(SSHdConstants.SSHD_BIN_DIRECTORY, Application.MODE_PRIVATE);
@@ -73,5 +73,13 @@ public class InstallResources {
 
         stmOut.close();
         stm.close();
+    }
+
+    public String getConfigFilePath() {
+        return configFile.getAbsolutePath();
+    }
+
+    public String getSetupScriptPath() {
+        return setupScript.getAbsolutePath();
     }
 }
