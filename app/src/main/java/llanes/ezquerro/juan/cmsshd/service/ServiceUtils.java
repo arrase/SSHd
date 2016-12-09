@@ -1,10 +1,13 @@
 package llanes.ezquerro.juan.cmsshd.service;
 
 
+import android.content.Context;
+
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.IOException;
 
-import llanes.ezquerro.juan.cmsshd.constants.SSHdConstants;
+import llanes.ezquerro.juan.cmsshd.setup.SSHdResources;
 
 public class ServiceUtils {
     public static void stopSSHd() {
@@ -17,7 +20,7 @@ public class ServiceUtils {
 
                     DataOutputStream os = new DataOutputStream(p.getOutputStream());
 
-                    os.writeBytes("/system/bin/kill $(cat " + SSHdConstants.SSHD_PID + ")\n");
+                    os.writeBytes("/system/bin/kill $(cat /data/ssh/sshd.pid)\n");
                     os.writeBytes("exit\n");
                     os.flush();
                     p.waitFor();
@@ -27,5 +30,11 @@ public class ServiceUtils {
                 }
             }
         }).start();
+    }
+
+    public static boolean isRunning(Context context) {
+        SSHdResources resources = new SSHdResources(context);
+        File pid = new File(resources.getPidfilePath());
+        return pid.exists();
     }
 }
