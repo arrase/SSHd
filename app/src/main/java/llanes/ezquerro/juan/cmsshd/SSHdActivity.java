@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 
+import llanes.ezquerro.juan.cmsshd.Utils.InstallResources;
 import llanes.ezquerro.juan.cmsshd.listeners.OptionsChangeListener;
 
 public class SSHdActivity extends PreferenceActivity {
@@ -15,6 +16,9 @@ public class SSHdActivity extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.sshd_setup);
+
+        InstallResources install = new InstallResources(this);
+        if(!install.areInstalled()) install.installSSHdFiles();
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         listener = new OptionsChangeListener(this);
