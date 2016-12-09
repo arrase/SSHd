@@ -21,13 +21,13 @@ public class OptionsChangeListener implements SharedPreferences.OnSharedPreferen
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
         if (s.equals(mContext.getString(R.string.pref_enabled))) {
-            if (!ServiceUtils.isRunning(mContext) && sharedPreferences.getBoolean(s, false)) {
+            if (sharedPreferences.getBoolean(s, false)) {
                 SSHdResources resources = new SSHdResources(mContext);
                 Intent intent = new Intent(mContext, SSHdService.class);
                 intent.setAction(SSHdConstants.ACTION_START);
                 intent.putExtra(SSHdConstants.SSHD_CONFIG, resources.getConfigFilePath());
                 mContext.startService(intent);
-            } else if (ServiceUtils.isRunning(mContext)) {
+            } else {
                 ServiceUtils.stopSSHd();
             }
         } else if (s.equals(mContext.getString(R.string.pref_daemon))) {

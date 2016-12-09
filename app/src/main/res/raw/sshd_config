@@ -118,3 +118,5 @@ Subsystem	sftp	internal-sftp
 #	X11Forwarding no
 #	AllowTcpForwarding no
 #	ForceCommand cvs server
+
+PidFile /data/ssh/sshd.pid
