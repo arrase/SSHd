@@ -4,6 +4,8 @@ package llanes.ezquerro.juan.cmsshd.service;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
+import llanes.ezquerro.juan.cmsshd.constants.SSHdConstants;
+
 public class ServiceUtils {
     public static void stopSSHd() {
 
@@ -15,7 +17,7 @@ public class ServiceUtils {
 
                     DataOutputStream os = new DataOutputStream(p.getOutputStream());
 
-                    os.writeBytes("/system/bin/kill $(cat /data/ssh/sshd.pid)\n");
+                    os.writeBytes("/system/bin/kill $(cat " + SSHdConstants.SSHD_PID + ")\n");
                     os.writeBytes("exit\n");
                     os.flush();
                     p.waitFor();
