@@ -1,10 +1,14 @@
 package llanes.ezquerro.juan.cmsshd.service;
 
 
+import android.content.Context;
+import android.content.Intent;
+
 import java.io.DataOutputStream;
 import java.io.IOException;
 
 import llanes.ezquerro.juan.cmsshd.constants.SSHdConstants;
+import llanes.ezquerro.juan.cmsshd.setup.SSHdResources;
 
 public class ServiceUtils {
     public static void stopSSHd() {
@@ -27,5 +31,13 @@ public class ServiceUtils {
                 }
             }
         }).start();
+    }
+
+    public static void startSSHd(Context context) {
+        SSHdResources resources = new SSHdResources(context);
+        Intent intent = new Intent(context, SSHdService.class);
+        intent.setAction(SSHdConstants.ACTION_START);
+        intent.putExtra(SSHdConstants.SSHD_CONFIG, resources.getConfigFilePath());
+        context.startService(intent);
     }
 }

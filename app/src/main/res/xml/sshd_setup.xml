@@ -8,11 +8,6 @@
 
         <SwitchPreference
             android:defaultValue="false"
-            android:key="@string/pref_localhost"
-            android:title="@string/only_localhost" />
-
-        <SwitchPreference
-            android:defaultValue="false"
             android:dependency="@string/pref_enabled"
             android:key="@string/pref_daemon"
             android:title="@string/run_on_startup" />
