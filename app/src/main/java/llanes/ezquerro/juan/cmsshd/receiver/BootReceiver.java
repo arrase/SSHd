@@ -16,6 +16,10 @@ public class BootReceiver extends BroadcastReceiver {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             if (prefs.getBoolean(context.getString(R.string.pref_daemon), false)) {
                 ServiceUtils.startSSHd(context);
+            } else {
+                SharedPreferences.Editor edit = prefs.edit();
+                edit.putBoolean(context.getString(R.string.pref_enabled), false);
+                edit.apply();
             }
         }
     }
