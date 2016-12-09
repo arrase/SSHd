@@ -18,9 +18,9 @@ public class SSHdActivity extends PreferenceActivity {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.sshd_setup);
 
-        SSHdResources install = new SSHdResources(this);
-        if (!install.areInstalled()) {
-            install.installSSHdFiles();
+        SSHdResources resources = new SSHdResources(this);
+        if (!resources.areInstalled()) {
+            resources.installSSHdFiles();
             SetupScript.run(this);
         }
 
