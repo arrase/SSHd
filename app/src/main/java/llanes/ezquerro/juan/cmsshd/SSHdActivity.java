@@ -6,6 +6,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 
 import llanes.ezquerro.juan.cmsshd.listeners.OptionsChangeListener;
+import llanes.ezquerro.juan.cmsshd.service.ServiceUtils;
 import llanes.ezquerro.juan.cmsshd.setup.SSHdResources;
 import llanes.ezquerro.juan.cmsshd.setup.SetupScript;
 
@@ -27,6 +28,9 @@ public class SSHdActivity extends PreferenceActivity {
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         listener = new OptionsChangeListener(this);
         prefs.registerOnSharedPreferenceChangeListener(listener);
+        SharedPreferences.Editor e = prefs.edit();
+        e.putBoolean(getString(R.string.pref_enabled), ServiceUtils.isRunning(this));
+        e.apply();
     }
 
     @Override

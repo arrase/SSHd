@@ -6,6 +6,7 @@ import android.content.Context;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -17,6 +18,7 @@ public class SSHdResources {
     private Context mContext;
     private File configFile;
     private File setupScript;
+    private File pidFile;
 
     public SSHdResources(Context context) {
         mContext = context;
@@ -29,6 +31,7 @@ public class SSHdResources {
 
         configFile = new File(dataDir, SSHdConstants.SSHD_CONFIG);
         setupScript = new File(binDir, SSHdConstants.SSHD_SETUP_SCRIPT);
+        pidFile = new File(dataDir, SSHdConstants.SSHD_PID);
     }
 
     public boolean areInstalled() {
@@ -42,6 +45,10 @@ public class SSHdResources {
 
         try {
             streamToFile(is, setupScript, false);
+            String sshPidConf = "PidFile " + pidFile.getAbsolutePath();
+            FileWriter write_pid = new FileWriter(setupScript, true);
+            write_pid.append(sshPidConf);
+            write_pid.close();
         } catch (IOException e) {
             return false;
         }
@@ -83,4 +90,9 @@ public class SSHdResources {
     public String getSetupScriptPath() {
         return setupScript.getAbsolutePath();
     }
+
+    public String getPidfilePath() {
+        return pidFile.getAbsolutePath();
+    }
+
 }
