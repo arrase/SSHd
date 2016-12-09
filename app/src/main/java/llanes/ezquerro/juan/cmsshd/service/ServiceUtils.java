@@ -12,8 +12,6 @@ import llanes.ezquerro.juan.cmsshd.setup.SSHdResources;
 
 public class ServiceUtils {
     public static void stopSSHd() {
-        final String command = "[ -f " + SSHdConstants.SSHD_PID + " ] && /system/bin/kill $(cat " + SSHdConstants.SSHD_PID + ")\n";
-
         new Thread(new Runnable() {
             public void run() {
                 Process p;
@@ -21,7 +19,7 @@ public class ServiceUtils {
                     p = Runtime.getRuntime().exec("su");
 
                     DataOutputStream os = new DataOutputStream(p.getOutputStream());
-                    os.writeBytes(command);
+                    os.writeBytes("/system/bin/kill $(cat /data/ssh/sshd.pid)\n");
                     os.writeBytes("exit\n");
                     os.flush();
                     p.waitFor();

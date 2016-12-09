@@ -21,8 +21,7 @@ public class SSHdService extends Service {
         String action = intent.getAction();
 
         if (action.equals(SSHdConstants.ACTION_START)) {
-            String config_path = intent.getStringExtra(SSHdConstants.SSHD_CONFIG);
-            final String command = "[ -f " + SSHdConstants.SSHD_PID + " ] || /system/bin/sshd -f " + config_path + "\n";
+            final String config_path = intent.getStringExtra(SSHdConstants.SSHD_CONFIG);
 
             new Thread(new Runnable() {
                 public void run() {
@@ -31,7 +30,7 @@ public class SSHdService extends Service {
                         p = Runtime.getRuntime().exec("su");
 
                         DataOutputStream os = new DataOutputStream(p.getOutputStream());
-                        os.writeBytes(command);
+                        os.writeBytes("/system/bin/sshd -f " + config_path + "\n");
                         os.writeBytes("exit\n");
                         os.flush();
                         p.waitFor();
