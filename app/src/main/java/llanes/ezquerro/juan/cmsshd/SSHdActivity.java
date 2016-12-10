@@ -2,14 +2,14 @@ package llanes.ezquerro.juan.cmsshd;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 
+import llanes.ezquerro.juan.cmsshd.delegate.AppCompatPreferenceActivity;
 import llanes.ezquerro.juan.cmsshd.listeners.OptionsChangeListener;
 import llanes.ezquerro.juan.cmsshd.setup.SSHdResources;
 import llanes.ezquerro.juan.cmsshd.setup.SetupScript;
 
-public class SSHdActivity extends PreferenceActivity {
+public class SSHdActivity extends AppCompatPreferenceActivity {
     private SharedPreferences prefs;
     private OptionsChangeListener listener;
 
