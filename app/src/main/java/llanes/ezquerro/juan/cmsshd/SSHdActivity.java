@@ -8,8 +8,6 @@ import android.preference.PreferenceManager;
 import llanes.ezquerro.juan.cmsshd.delegate.AppCompatPreferenceActivity;
 import llanes.ezquerro.juan.cmsshd.listeners.OptionsChangeListener;
 import llanes.ezquerro.juan.cmsshd.permissions.PermissionManager;
-import llanes.ezquerro.juan.cmsshd.setup.SSHdResources;
-import llanes.ezquerro.juan.cmsshd.setup.SetupScript;
 
 public class SSHdActivity extends AppCompatPreferenceActivity {
     private SharedPreferences prefs;
@@ -19,12 +17,6 @@ public class SSHdActivity extends AppCompatPreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.sshd_setup);
-
-        SSHdResources resources = new SSHdResources(this);
-        if (!resources.areInstalled()) {
-            resources.installSSHdFiles();
-            SetupScript.run(resources.getSetupScriptPath());
-        }
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         listener = new OptionsChangeListener(this);

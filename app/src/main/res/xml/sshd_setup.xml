@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:key="@string/pref_key"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        android:title="@string/public_key" />
     <SwitchPreference
         android:defaultValue="false"
+        android:dependency="@string/pref_key"
         android:key="@string/pref_enabled"
         android:title="@string/enabled" />
 
@@ -13,12 +19,8 @@
 
     <SwitchPreference
         android:defaultValue="true"
+        android:dependency="@string/pref_key"
         android:key="@string/pref_battery_optimizations"
         android:title="@string/battery_optimizations" />
 
-    <EditTextPreference
-        android:key="@string/pref_key"
-        android:selectAllOnFocus="true"
-        android:singleLine="false"
-        android:title="@string/public_key" />
 </PreferenceScreen>

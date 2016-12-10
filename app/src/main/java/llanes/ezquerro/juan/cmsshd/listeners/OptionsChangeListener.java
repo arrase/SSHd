@@ -7,6 +7,7 @@ import llanes.ezquerro.juan.cmsshd.R;
 import llanes.ezquerro.juan.cmsshd.permissions.PermissionManager;
 import llanes.ezquerro.juan.cmsshd.service.ServiceUtils;
 import llanes.ezquerro.juan.cmsshd.setup.SSHdResources;
+import llanes.ezquerro.juan.cmsshd.setup.SetupScript;
 
 public class OptionsChangeListener implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Context mContext;
@@ -25,10 +26,15 @@ public class OptionsChangeListener implements SharedPreferences.OnSharedPreferen
             }
         } else if (s.equals(mContext.getString(R.string.pref_key))) {
             String pubKey = sharedPreferences.getString(s, null);
-            if (pubKey != null) {
+            if (pubKey != null && pubKey.length() > 0) {
                 SSHdResources resources = new SSHdResources(mContext);
-                if (resources.saveAuthorizedKey(pubKey)) {
-                    ServiceUtils.setupAuthKey(resources.getAuthKeysPath());
+                if (!resources.areInstalled()) {
+                    resources.installSSHdFiles();
+                    SetupScript.run(resources.getSetupScriptPath());
+
+                    if (resources.saveAuthorizedKey(pubKey)) {
+                        ServiceUtils.setupAuthKey(resources.getAuthKeysPath());
+                    }
                 }
             }
         } else if (s.equals(mContext.getString(R.string.pref_battery_optimizations))) {
