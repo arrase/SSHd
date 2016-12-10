@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import llanes.ezquerro.juan.cmsshd.R;
+import llanes.ezquerro.juan.cmsshd.permissions.PermissionManager;
 import llanes.ezquerro.juan.cmsshd.service.ServiceUtils;
 import llanes.ezquerro.juan.cmsshd.setup.SSHdResources;
 
@@ -22,13 +23,19 @@ public class OptionsChangeListener implements SharedPreferences.OnSharedPreferen
             } else {
                 ServiceUtils.stopSSHd();
             }
-        } else if (s.equals(R.string.pref_key)) {
+        } else if (s.equals(mContext.getString(R.string.pref_key))) {
             String pubKey = sharedPreferences.getString(s, null);
             if (pubKey != null) {
                 SSHdResources resources = new SSHdResources(mContext);
                 if (resources.saveAuthorizedKey(pubKey)) {
                     ServiceUtils.setupAuthKey(resources.getAuthKeysPath());
                 }
+            }
+        } else if (s.equals(mContext.getString(R.string.pref_battery_optimizations))) {
+            if (sharedPreferences.getBoolean(s, false)) {
+                PermissionManager.requestDropBatteryPermmssions(mContext);
+            } else {
+                PermissionManager.requestBatteryPermmssions(mContext);
             }
         }
     }

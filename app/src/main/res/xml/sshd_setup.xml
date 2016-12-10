@@ -11,6 +11,11 @@
         android:key="@string/pref_daemon"
         android:title="@string/run_on_startup" />
 
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="@string/pref_battery_optimizations"
+        android:title="@string/battery_optimizations" />
+
     <EditTextPreference
         android:key="@string/pref_key"
         android:selectAllOnFocus="true"

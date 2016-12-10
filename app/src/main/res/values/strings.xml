@@ -2,10 +2,15 @@
     <string name="app_name">CM SSHd</string>
     <string name="upload_public_key">Upload public key</string>
     <string name="enabled">Enabled</string>
+    <string name="disable">Disable</string>
+    <string name="enable">Enable</string>
     <string name="run_on_startup">Run on startup</string>
     <string name="public_key">Public Key</string>
+    <string name="battery_optimizations">Battery optimizations</string>
+    <string name="only_for_lollipop_or_higher">Only for Lollipop or higher</string>
 
     <string name="pref_enabled">enabled</string>
     <string name="pref_daemon">daemon</string>
     <string name="pref_key">rsa_key</string>
+    <string name="pref_battery_optimizations">doze</string>
 </resources>

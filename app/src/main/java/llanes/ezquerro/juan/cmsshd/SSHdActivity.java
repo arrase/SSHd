@@ -2,10 +2,12 @@ package llanes.ezquerro.juan.cmsshd;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceManager;
 
 import llanes.ezquerro.juan.cmsshd.delegate.AppCompatPreferenceActivity;
 import llanes.ezquerro.juan.cmsshd.listeners.OptionsChangeListener;
+import llanes.ezquerro.juan.cmsshd.permissions.PermissionManager;
 import llanes.ezquerro.juan.cmsshd.setup.SSHdResources;
 import llanes.ezquerro.juan.cmsshd.setup.SetupScript;
 
@@ -27,6 +29,12 @@ public class SSHdActivity extends AppCompatPreferenceActivity {
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         listener = new OptionsChangeListener(this);
         prefs.registerOnSharedPreferenceChangeListener(listener);
+
+        if (!PermissionManager.isLollipopOrHigher()) {
+            Preference doze = findPreference(getString(R.string.pref_battery_optimizations));
+            doze.setSummary(getString(R.string.only_for_lollipop_or_higher));
+            doze.setEnabled(false);
+        }
     }
 
     @Override
