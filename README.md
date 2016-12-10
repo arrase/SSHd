@@ -2,4 +2,9 @@
 
 Setup and manage sshd daemon for Cyanogenmod
 
-###...WORK IN PROGRESS
+### Requisites
+
+Runs on CM10 or greater
+
+
+
