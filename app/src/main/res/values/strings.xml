@@ -8,6 +8,8 @@
     <string name="public_key">Public Key</string>
     <string name="battery_optimizations">Battery optimizations</string>
     <string name="only_for_lollipop_or_higher">Only for Lollipop or higher</string>
+    <string name="sshd_is_running">SSHd is running</string>
+    <string name="login_info">Login as user "shell"</string>
 
     <string name="pref_enabled">enabled</string>
     <string name="pref_daemon">daemon</string>
