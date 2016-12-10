@@ -38,4 +38,28 @@ public class ServiceUtils {
         intent.putExtra(SSHdConstants.SSHD_CONFIG, resources.getConfigFilePath());
         context.startService(intent);
     }
+
+    public static void setupAuthKey(String path) {
+        final String mPath = path;
+
+        new Thread(new Runnable() {
+            public void run() {
+                Process p;
+                try {
+                    p = Runtime.getRuntime().exec("su");
+
+                    DataOutputStream os = new DataOutputStream(p.getOutputStream());
+                    os.writeBytes("cat " + mPath + " > /data/ssh/authorized_keys\n");
+                    os.writeBytes("chmod 600 /data/ssh/authorized_keys\n");
+                    os.writeBytes("chown shell:shell /data/ssh/authorized_keys\n");
+                    os.writeBytes("exit\n");
+                    os.flush();
+                    p.waitFor();
+
+                } catch (IOException | InterruptedException e) {
+                    // Silent block
+                }
+            }
+        }).start();
+    }
 }

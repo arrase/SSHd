@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 import llanes.ezquerro.juan.cmsshd.R;
 import llanes.ezquerro.juan.cmsshd.service.ServiceUtils;
+import llanes.ezquerro.juan.cmsshd.setup.SSHdResources;
 
 public class OptionsChangeListener implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Context mContext;
@@ -20,6 +21,14 @@ public class OptionsChangeListener implements SharedPreferences.OnSharedPreferen
                 ServiceUtils.startSSHd(mContext);
             } else {
                 ServiceUtils.stopSSHd();
+            }
+        } else if (s.equals(R.string.pref_key)) {
+            String pubKey = sharedPreferences.getString(s, null);
+            if (pubKey != null) {
+                SSHdResources resources = new SSHdResources(mContext);
+                if (resources.saveAuthorizedKey(pubKey)) {
+                    ServiceUtils.setupAuthKey(resources.getAuthKeysPath());
+                }
             }
         }
     }

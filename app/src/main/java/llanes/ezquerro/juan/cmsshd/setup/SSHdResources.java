@@ -6,6 +6,7 @@ import android.content.Context;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -17,6 +18,7 @@ public class SSHdResources {
     private Context mContext;
     private File configFile;
     private File setupScript;
+    private File authorizedKeys;
 
     public SSHdResources(Context context) {
         mContext = context;
@@ -29,6 +31,7 @@ public class SSHdResources {
 
         configFile = new File(dataDir, SSHdConstants.SSHD_CONFIG);
         setupScript = new File(binDir, SSHdConstants.SSHD_SETUP_SCRIPT);
+        authorizedKeys = new File(dataDir, SSHdConstants.SSHD_AUTHORIZED_KEYS);
     }
 
     public boolean areInstalled() {
@@ -50,6 +53,19 @@ public class SSHdResources {
 
         try {
             streamToFile(is, configFile, false);
+        } catch (IOException e) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean saveAuthorizedKey(String key) {
+        FileWriter stmOut;
+        try {
+            stmOut = new FileWriter(authorizedKeys.getAbsolutePath(), false);
+            stmOut.write(key);
+            stmOut.close();
         } catch (IOException e) {
             return false;
         }
@@ -84,4 +100,7 @@ public class SSHdResources {
         return setupScript.getAbsolutePath();
     }
 
+    public String getAuthKeysPath() {
+        return authorizedKeys.getAbsolutePath();
+    }
 }

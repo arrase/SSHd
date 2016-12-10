@@ -11,5 +11,11 @@
             android:dependency="@string/pref_enabled"
             android:key="@string/pref_daemon"
             android:title="@string/run_on_startup" />
+
+        <EditTextPreference
+            android:selectAllOnFocus="true"
+            android:singleLine="false"
+            android:title="@string/public_key"
+            android:key="@string/pref_key" />
     </PreferenceCategory>
 </PreferenceScreen>

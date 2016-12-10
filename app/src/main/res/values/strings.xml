@@ -4,7 +4,9 @@
     <string name="sshd_setup">SSHd setup</string>
     <string name="enabled">Enabled</string>
     <string name="run_on_startup">Run on startup</string>
+    <string name="public_key">Public Key</string>
 
     <string name="pref_enabled">enabled</string>
     <string name="pref_daemon">daemon</string>
+    <string name="pref_key">rsa_key</string>
 </resources>
