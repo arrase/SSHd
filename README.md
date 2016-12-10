@@ -8,6 +8,8 @@ Runs on CM10 or greater
 
 ### Usage examples
 
+After start the daemon you can:
+
 - Login:
 
 ```
