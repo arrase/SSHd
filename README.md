@@ -1,10 +1,10 @@
-# Cyanogenmod SSHd Manager
+# SSHd Manager
 
-Setup and manage sshd daemon for Cyanogenmod
+Setup and manage sshd daemon for LineageOs and other roms with sshd built-in.
 
 ### Requisites
 
-Runs on CM10 or greater
+Needs root
 
 ### Usage examples
 
