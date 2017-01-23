@@ -1,4 +1,4 @@
-package llanes.ezquerro.juan.cmsshd.setup;
+package llanes.ezquerro.juan.sshd.setup;
 
 import java.io.DataOutputStream;
 import java.io.IOException;

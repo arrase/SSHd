@@ -1,4 +1,4 @@
-package llanes.ezquerro.juan.cmsshd.receiver;
+package llanes.ezquerro.juan.sshd.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import llanes.ezquerro.juan.cmsshd.R;
-import llanes.ezquerro.juan.cmsshd.service.ServiceUtils;
+import llanes.ezquerro.juan.sshd.R;
+import llanes.ezquerro.juan.sshd.service.ServiceUtils;
 
 public class BootReceiver extends BroadcastReceiver {
     @Override

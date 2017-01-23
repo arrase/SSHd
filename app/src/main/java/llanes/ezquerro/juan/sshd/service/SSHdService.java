@@ -1,4 +1,4 @@
-package llanes.ezquerro.juan.cmsshd.service;
+package llanes.ezquerro.juan.sshd.service;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -10,8 +10,8 @@ import android.support.v4.app.NotificationCompat;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-import llanes.ezquerro.juan.cmsshd.R;
-import llanes.ezquerro.juan.cmsshd.constants.SSHdConstants;
+import llanes.ezquerro.juan.sshd.R;
+import llanes.ezquerro.juan.sshd.constants.SSHdConstants;
 
 public class SSHdService extends Service {
 

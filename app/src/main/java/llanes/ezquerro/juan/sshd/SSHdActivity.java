@@ -1,13 +1,13 @@
-package llanes.ezquerro.juan.cmsshd;
+package llanes.ezquerro.juan.sshd;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
 
-import llanes.ezquerro.juan.cmsshd.delegate.AppCompatPreferenceActivity;
-import llanes.ezquerro.juan.cmsshd.listeners.OptionsChangeListener;
-import llanes.ezquerro.juan.cmsshd.permissions.PermissionManager;
+import llanes.ezquerro.juan.sshd.delegate.AppCompatPreferenceActivity;
+import llanes.ezquerro.juan.sshd.listeners.OptionsChangeListener;
+import llanes.ezquerro.juan.sshd.permissions.PermissionManager;
 
 public class SSHdActivity extends AppCompatPreferenceActivity {
     private SharedPreferences prefs;

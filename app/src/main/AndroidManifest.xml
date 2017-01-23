@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="llanes.ezquerro.juan.cmsshd">
+    package="llanes.ezquerro.juan.sshd">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SSHdActivity"
+            android:name="llanes.ezquerro.juan.sshd.SSHdActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,11 +28,11 @@
         </activity>
 
         <service
-            android:name=".service.SSHdService"
+            android:name="llanes.ezquerro.juan.sshd.service.SSHdService"
             android:enabled="true"
             android:exported="false" />
 
-        <receiver android:name=".receiver.BootReceiver">
+        <receiver android:name="llanes.ezquerro.juan.sshd.receiver.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>

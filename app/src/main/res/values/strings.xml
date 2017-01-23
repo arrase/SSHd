@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CM SSHd</string>
+    <string name="app_name">SSHd</string>
     <string name="upload_public_key">Upload public key</string>
     <string name="enabled">Enabled</string>
     <string name="disable">Disable</string>

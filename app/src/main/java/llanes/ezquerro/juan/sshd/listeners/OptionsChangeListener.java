@@ -1,13 +1,13 @@
-package llanes.ezquerro.juan.cmsshd.listeners;
+package llanes.ezquerro.juan.sshd.listeners;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import llanes.ezquerro.juan.cmsshd.R;
-import llanes.ezquerro.juan.cmsshd.permissions.PermissionManager;
-import llanes.ezquerro.juan.cmsshd.service.ServiceUtils;
-import llanes.ezquerro.juan.cmsshd.setup.SSHdResources;
-import llanes.ezquerro.juan.cmsshd.setup.SetupScript;
+import llanes.ezquerro.juan.sshd.R;
+import llanes.ezquerro.juan.sshd.permissions.PermissionManager;
+import llanes.ezquerro.juan.sshd.service.ServiceUtils;
+import llanes.ezquerro.juan.sshd.setup.SSHdResources;
+import llanes.ezquerro.juan.sshd.setup.SetupScript;
 
 public class OptionsChangeListener implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Context mContext;

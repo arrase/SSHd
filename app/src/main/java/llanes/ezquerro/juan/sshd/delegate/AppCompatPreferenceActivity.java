@@ -1,4 +1,4 @@
-package llanes.ezquerro.juan.cmsshd.delegate;
+package llanes.ezquerro.juan.sshd.delegate;
 
 import android.content.res.Configuration;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package llanes.ezquerro.juan.cmsshd.permissions;
+package llanes.ezquerro.juan.sshd.permissions;
 
 
 import android.annotation.TargetApi;

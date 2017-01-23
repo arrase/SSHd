@@ -1,4 +1,4 @@
-package llanes.ezquerro.juan.cmsshd.service;
+package llanes.ezquerro.juan.sshd.service;
 
 
 import android.content.Context;
@@ -7,8 +7,8 @@ import android.content.Intent;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-import llanes.ezquerro.juan.cmsshd.constants.SSHdConstants;
-import llanes.ezquerro.juan.cmsshd.setup.SSHdResources;
+import llanes.ezquerro.juan.sshd.constants.SSHdConstants;
+import llanes.ezquerro.juan.sshd.setup.SSHdResources;
 
 public class ServiceUtils {
     public static void stopSSHd() {
